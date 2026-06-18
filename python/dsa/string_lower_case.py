@@ -1,7 +1,7 @@
 #Program to make string lower case:
 from fontTools.misc.cython import returns
 
-mystring = "CLAUDE"
+mystring = str(input("Enter the string:"))
 list_string = list(mystring)
 lower_string = ""
 
