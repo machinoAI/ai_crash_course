@@ -11,9 +11,7 @@ def measure_latency(func):
         result = func(**args)
 
         end_time = int(time.time() * 1000)
-
         latency = (end_time-start_time)
-
         print("Latency:", latency)
 
         return result
@@ -25,6 +23,5 @@ def measure_latency(func):
 def fetch_data():
     time.sleep(0.2)
     print("Fetching Data...")
-
 
 fetch_data()
