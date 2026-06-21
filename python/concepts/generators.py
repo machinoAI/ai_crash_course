@@ -14,3 +14,8 @@ def read_large_file(path):
 
 for line in read_large_file("logs.txt"):
     print(line)  # Process
+
+
+# Large CSV file without generator:
+# for chunk in pd.read_csv("100GB.csv", chunksize=10000):
+#     process(chunk)
