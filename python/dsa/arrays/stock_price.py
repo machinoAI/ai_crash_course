@@ -33,9 +33,36 @@ def buy_sell_stock(nums):
     return max_profit
 
 max_profit = buy_sell_stock(prices)
-print("Maximum Profit",max_profit)
+print("Maximum Profit:",max_profit)
 
 # Optimising for O(n) time complexity:
+
+def buy_sell_stock(nums):
+    max_profit=0
+    min_price=nums[0]
+    min_index= 0
+
+    for i, num in enumerate(nums):
+        if num<min_price:
+            min_price=num
+            min_index=i
+
+        profit = num-min_price
+        if max_profit < profit:
+            max_profit= profit
+
+
+    return max_profit
+
+prices = [7,1,5,3,6,4]
+print(buy_sell_stock(prices))
+
+
+
+
+
+
+
 
 
 
