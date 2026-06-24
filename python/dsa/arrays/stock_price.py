@@ -23,7 +23,6 @@ Profit = 6 - 1 = 5
 prices = [7,1,5,3,6,4]
 
 def buy_sell_stock(nums):
-    profit=0
     max_profit = 0
     for i in range(len(nums)):
         for j in range(i+1, len(nums)):
@@ -35,6 +34,8 @@ def buy_sell_stock(nums):
 
 max_profit = buy_sell_stock(prices)
 print("Maximum Profit",max_profit)
+
+# Optimising for O(n) time complexity:
 
 
 
