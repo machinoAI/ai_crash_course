@@ -30,24 +30,24 @@ def product_array(nums):
 nums = [1,2,3,4]
 
 def product_array(nums):
-    product =1
-    product1=1
     left =[]
     right =[]
-    index =0
 
+    product =1
     for num in nums:
         left.append(product)
         product *= num
+    print("Left:", left)
 
+    product = 1
     for num in reversed(nums):
-        right.append(product1)
-        product1 *=num
-
-
+        right.append(product)
+        product *=num
 
     rev_right=right[::-1]
+
+    print("right:", rev_right)
     return [l * r for l, r in zip(left, rev_right)]
 
 
-print(product_array(nums))
+print("Final:", product_array(nums))
