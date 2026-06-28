@@ -28,6 +28,7 @@ print(rain_water_trapping(heights))
 
 def rain_water_trapping(heights):
     water = 0
+
     left=0
     right= len(heights)-1
 
