@@ -20,7 +20,7 @@ def two_sum(nums, target):
 
 
 nums = [2,7,11,15]
-target = 9
+target = 13
 print("Two sum index: ",two_sum(nums,target))
 
 
@@ -32,7 +32,6 @@ def two_sum_index(nums, target):
 
     for i in range(len(nums)):
 
-
         temp = target-nums[i]
 
         if temp in seen:
@@ -41,5 +40,5 @@ def two_sum_index(nums, target):
             seen[nums[i]] = i
 
 nums = [2,7,11,15]
-target = 9
+target = 13
 print("two_sum_index optimized: ", two_sum_index(nums, target))
