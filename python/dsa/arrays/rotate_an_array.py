@@ -11,10 +11,10 @@
 nums=eval(input("Enter an array:"))
 k =int(input("Enter an position number:"))
 
-def rotate_array(nums):
+def rotate_array(nums, k):
 
     return nums[k+1:]+nums[0:k+1]
 
 print("Entered array:", nums)
 print("Given position:", k)
-print(f"Rotated Array by {k}th position: {rotate_array(nums)}")
+print(f"Rotated Array by {k}th position: {rotate_array(nums, k)}")

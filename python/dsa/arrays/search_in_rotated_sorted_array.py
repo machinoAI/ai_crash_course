@@ -8,16 +8,17 @@ You must solve it in O(log n) time.
 """
 
 nums = [4,5,6,7,0,1,2]
-target = 0
+nums =[2, 3, 4, 5, 3]
+target = 3
 
 
 def rotated_array(nums, target):
-    index = -1
+
     for i, num in enumerate(nums):
         if target == num:
-            index = i
+            return i
 
-    return index
+    return -1
 
 
 print(rotated_array(nums, target))
