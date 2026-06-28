@@ -13,7 +13,7 @@ k =int(input("Enter an position number:"))
 
 def rotate_array(nums, k):
 
-    return nums[k+1:]+nums[0:k+1]
+    return nums[k:]+nums[0:k]
 
 print("Entered array:", nums)
 print("Given position:", k)
