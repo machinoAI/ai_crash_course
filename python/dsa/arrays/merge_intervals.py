@@ -7,14 +7,16 @@ Merge all overlapping intervals and return a new array containing only the merge
 """
 
 intervals = [[1,3],[2,6],[8,10],[15,18]]
-intervals = [[1,10],[2,6]]
+# intervals = [[1,10],[2,6]]
 #Output: [[1,6],[8,10],[15,18]]
+# time complexity: O(n log n)
+
 
 def merge_intervals(intervals):
     intervals.sort()
     merged = [intervals[0]]
 
-    for start, end in intervals:
+    for start, end in intervals[:]:
         if start <= merged[-1][1]:
             merged[-1][1]= max( merged[-1][1], end)
         else:
