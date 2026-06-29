@@ -8,8 +8,9 @@ You must solve it in O(log n) time.
 """
 
 nums = [4,5,6,7,0,1,2]
-nums =[2, 3, 4, 5, 3]
-target = 3
+
+target = 0
+# nums =[2, 3, 4, 5, 3]
 
 
 def rotated_array(nums, target):
