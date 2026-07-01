@@ -27,14 +27,6 @@ class LinkedList:
         return slow.data
 
 
-    def traverse(self, head):
-        curr = head
-        while curr:
-            print(curr)
-            curr = curr.next
-
-
-
 
 node1 = Node(10)
 node2 = Node(20)
