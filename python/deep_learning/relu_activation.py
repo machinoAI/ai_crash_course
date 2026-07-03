@@ -13,7 +13,8 @@ print("ReLU:", y)
 
 
 
-#Leaky ReLU: is a variant of ReLU that allows a small negative output instead of making all negative values zero. This prevents neurons from becoming permanently inactive.
+#Leaky ReLU: is a variant of ReLU that allows a small negative output instead of making all negative values zero.
+# This prevents neurons from becoming permanently inactive.
 # f(x) = { x if x> 0 , αx if x<=0, where α = small constant (typically 0.01)
 import torch.nn as nn
 
