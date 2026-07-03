@@ -42,5 +42,4 @@ Examples:
     - Zero-centered, making optimization easier than Sigmoid in some cases.
     - Used in hidden layers, especially in older neural networks and RNNs.
 
-
 """
