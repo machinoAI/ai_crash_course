@@ -15,6 +15,8 @@ y mean = 25/5 = 5
 Residual sum = sum((actual1 - predicted1)^2)+ ....)
 Total sum = sum((actual1 - mean)^2+ ....)
 
+The model explains 92% of the variability (variance) in the target variable.
+The remaining 8% of the variability is due to factors not captured by the model or prediction errors.
 """
 
 from sklearn.metrics import r2_score
