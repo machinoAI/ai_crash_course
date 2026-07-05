@@ -47,3 +47,24 @@ print(X)
 model = sm.OLS(y, X).fit()    # OLS = Ordinary Least Squares equivalent to LinearRegression in sk learn
 
 print(model.summary())
+
+
+
+# List of methods of model:
+
+"""
+| Method / Attribute     | Purpose                        |
+| ---------------------- | ------------------------------ |
+| `model.summary()`      | Complete regression report     |
+| `model.conf_int()`     | Confidence intervals           |
+| `model.predict(X_new)` | Predict new values             |
+| `model.params`         | Regression coefficients        |
+| `model.pvalues`        | p-values of coefficients       |
+| `model.rsquared`       | R²                             |
+| `model.rsquared_adj`   | Adjusted R²                    |
+| `model.fvalue`         | F-statistic                    |
+| `model.f_pvalue`       | p-value of F-statistic         |
+| `model.resid`          | Residuals (Actual − Predicted) |
+| `model.fittedvalues`   | Predicted values               |
+
+"""

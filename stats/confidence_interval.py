@@ -42,3 +42,6 @@ X = sm.add_constant(X)
 model = sm.OLS(y, X).fit()    # OLS = Ordinary Least Squares equivalent to LinearRegression in sk learn
 
 print(model.conf_int())
+
+
+
