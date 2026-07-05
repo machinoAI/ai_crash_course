@@ -29,10 +29,12 @@ def SearchingChallenge(strParam):
 
 
 # keep this function call here
+input= "abadabba"
 challenge_token = "ufkpzynd08c"
-reversed_token = challenge_token[::-1]
 
-palindrome = SearchingChallenge(input())
+reversed_token = challenge_token[::-1]
+palindrome = SearchingChallenge(input)
+
 if len(palindrome) <= 2:
     palindrome = "none"
 else:
