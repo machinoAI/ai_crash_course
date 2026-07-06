@@ -18,8 +18,8 @@ def max_product_subarray(nums):
         if num <0 :
             current_max, current_min = current_min, current_max
 
-        current_max = max(num, current_max*num)
-        current_min = min(num, current_min*num)
+        current_max = max(num, current_max * num)
+        current_min = min(num, current_min * num)
 
         result =max(result, current_max)
 
