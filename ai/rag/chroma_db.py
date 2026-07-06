@@ -155,3 +155,41 @@ client.delete_collection("employees")
 
 # Step 16: Reset database
 client.reset()
+
+"""
+# RAG Evaluation Metrics:
+
+- Precision@k
+- Recall@k
+- Hit Rate    -> Was at least one correct document retrieved? hit Rate =1
+
+-MRR (Mean Reciprocal Rank) 
+    1 D4
+    2 D5
+    3 D1 rank =3
+
+    score= 1 / 3 = 0.33
+ 
+ - nDCG:
+    query = Who works in AI?
+    
+    D1 = Highly Relevant
+
+    D2 = Somewhat Relevant
+    
+    D3 = Not Relevant
+        
+    Retriever returns:
+    D2
+    D3
+    D1
+    
+    D1 should have been first.
+
+    nDCG rewards:
+        - Correct ranking
+        - Highly relevant docs appearing early
+    
+    
+
+"""
