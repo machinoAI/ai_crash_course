@@ -1,4 +1,4 @@
-# Q3. Find the second largest element in one traversal without sorting.
+# Q3. Find the second-largest element in one traversal without sorting.
 
 
 nums = [41, 90, 11, 40, 98, 55, 89, 39]
