@@ -12,12 +12,17 @@ the sequence HH or TH shows up. If HH shows up first, you win, and if TH shows u
    = power(2,2) = 4
    or
 
-   HH, TT
-   HT, TH
+   HH,
+   TT
+   HT,
+   TH
 
- Now, count of HH = 1
- so probability of you wining the game is = 1/4
- even your friend has same probability of winning the game as TH counts only 1 out of four sets.
+case1: When first toss is H (1/2)-> Only 50% chances that the next toss would also be H = 1/2*1/2 = 1/4 (only scenario you win)
+When next toss is T = you lost the game. or your friend win = (1/2*1/2) = 1/4
+
+case 2: When first toss is T -> you lost the game doesn't matter. TH or TT (1/2)
+
+ so 1/4+1/2 = 3/4 = 75% chances that your friend win but only 25% you may win.
 
 
 """
