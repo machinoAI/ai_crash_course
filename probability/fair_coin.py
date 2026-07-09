@@ -21,3 +21,5 @@ the sequence HH or TH shows up. If HH shows up first, you win, and if TH shows u
 
 
 """
+import numpy
+
