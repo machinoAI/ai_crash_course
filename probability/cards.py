@@ -8,4 +8,6 @@ Explanation:
     There are 50 favourable pairs where number of one of them is double:
         (1,2), (2,4) = 50/4950 = 1/99
 
+More questions here: https://www.machinoai.in/post/top-15-probability-question-answers-for-the-data-s-mktq62sn
+
 """
