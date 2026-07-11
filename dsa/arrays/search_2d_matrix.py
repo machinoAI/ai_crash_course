@@ -17,4 +17,6 @@ def search_in_matrix(nums, target):
 
     return False
 
+#Time Complexity: O(m × n)
+#Space Complexity: O(1)
 print(search_in_matrix(Input, target))
