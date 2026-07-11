@@ -40,17 +40,14 @@ print("Maximum Profit:",max_profit)
 def buy_sell_stock(nums):
     max_profit=0
     min_price=nums[0]
-    min_index= 0
 
     for i, num in enumerate(nums):
         if num<min_price:
             min_price=num
-            min_index=i
 
         profit = num-min_price
         if max_profit < profit:
             max_profit= profit
-
 
     return max_profit
 

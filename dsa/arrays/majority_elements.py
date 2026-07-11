@@ -23,7 +23,7 @@ def majority_element(nums):
         if count>n//2:
             return nums[i]
 
-
+nums = [7, 0, 0, 1, 7, 7, 2, 7, 7]
 print(majority_element(nums))
 
 # Optimal Approach (Boyer-Moore Voting Algorithm) — O(n), O(1)
@@ -43,5 +43,5 @@ def majority_element(nums):
 
     return candidate
 
-nums = [3,2,3]
+# nums = [3,2,3]
 print(majority_element(nums))
