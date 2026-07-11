@@ -33,7 +33,15 @@ def lone_element(nums):
 
     return nums[left]
 
+def lone_element(nums):
+    xorr = 0
+
+    for num in nums:
+        xorr ^=num
+
+    return xorr
 
 
 nums = [1, 1, 3, 3, 4, 4, 8, 8, 9]
 print("Lone Element optimized:",lone_element(nums))
+print("Lone Element XOR:",lone_element(nums))
