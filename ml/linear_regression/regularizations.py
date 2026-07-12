@@ -20,5 +20,5 @@ Elastic Net:
 
     - combines feature selection (L1) with coefficient stability (L2).
 
-
+- A data sets with multicollinearity uses elastic net.
 """
