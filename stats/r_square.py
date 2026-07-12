@@ -17,7 +17,18 @@ Total sum = sum((actual1 - mean)^2+ ....)
 
 The model explains 92% of the variability (variance) in the target variable.
 The remaining 8% of the variability is due to factors not captured by the model or prediction errors.
+
+- Interpretations:
+    R² = 1 perfect fit
+    R² = 0 Same as predicting the mean
+    R² < 0  worse than predicting the mean.
+
+
+ - Why can R² increase even when the feature is useless?
+ 
+ - Because adding features can only decrease the residual error, so R² never decreases. That's why we use Adjusted R².
 """
+
 
 from sklearn.metrics import r2_score
 
