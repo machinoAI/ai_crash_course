@@ -1,7 +1,7 @@
 """
 Why do we use cross entropy loss not MSE in Logistic Regression?
 
- L = −(y logp + (1−y)log(1−p))
+ L = −(y log p + (1−y)log(1−p))
 
  where p = σ(wx+b)
 
@@ -14,6 +14,7 @@ Why do we use cross entropy loss not MSE in Logistic Regression?
   MSE can suffer from slow convergence due to vanishing gradients.
 
 
-  Cross-entropy is convex because its second derivative is always non-negative.
+  - Cross-entropy is convex because its second derivative is always non-negative.
   Therefore, logistic regression has a single global minimum, making optimization easier.
+
 """
