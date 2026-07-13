@@ -22,3 +22,12 @@ Example: Assume height and weight increases together , so covariance is high.
     and the relationships between features. PCA then finds the directions that capture the maximum variance.
 
 """
+
+"""
+When can PCA hurt performance ?
+- PCA keeps features with high variance and removes those with low variance.
+- When important features have low variance.
+- Fraud detection: Fraud patterns may have low variance but high predictive power.
+    PCA may remove them.
+
+"""
