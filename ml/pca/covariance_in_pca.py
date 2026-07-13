@@ -27,7 +27,11 @@ Example: Assume height and weight increases together , so covariance is high.
 When can PCA hurt performance ?
 - PCA keeps features with high variance and removes those with low variance.
 - When important features have low variance.
-- Fraud detection: Fraud patterns may have low variance but high predictive power.
-    PCA may remove them.
+    Example: Fraud detection: Fraud patterns may have low variance but high predictive power.
+        PCA may remove them.
+- When the relationship is non-linear
+- When interpretability matters
+- When you already have very few features
+    
 
 """
