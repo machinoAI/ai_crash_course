@@ -26,7 +26,7 @@ def generate(n):
         row = [1] * (i+1)
 
         for j in range(1, i):
-            row[j] = triangle[i-1][j-1]+triangle[i-1][j]
+            row[j] = triangle[i-1][j-1]+triangle[i-1][j]  # Current element = upper-left + upper-right
 
 
         triangle.append(row)
@@ -34,6 +34,54 @@ def generate(n):
     return  triangle
 
 
-list1 = generate(5)
-for item in list1:
-    print(item)
+# list1 = generate(5)
+# print(list1)
+# for item in list1:
+#     print(item)
+
+
+# Optimised : Time complexity: O(min(c,r−c)) and space complexity:O(1)
+"""
+Pascal Triangle row n  ↔  coefficients of (a+b)^n
+nCr = n! / (r!(n-r)!) 
+Element=(n−1)C(r−1) = (n-1)! / (n-1)!(n-r)!
+"""
+
+def find_pascal_element(n,r):
+
+    m = n-1
+    n = r-1
+
+    result =1
+
+    for i in range(n):
+        result *=(m-i)
+        result //=(i+1)
+
+    return result
+
+print(find_pascal_element(5,5))
+
+
+def generate_pascal_triangle(n):
+
+    triangle = []
+
+    for row in range(1, n + 1):
+
+        current_row = []
+
+        for col in range(1, row + 1):
+            current_row.append(
+                find_pascal_element(row, col)
+            )
+
+        triangle.append(current_row)
+
+    return triangle
+
+
+triangle = generate_pascal_triangle(5)
+
+for row in triangle:
+    print(row)
