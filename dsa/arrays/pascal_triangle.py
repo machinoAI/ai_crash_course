@@ -51,7 +51,6 @@ def find_pascal_element(n,r):
 
     m = n-1
     n = r-1
-
     result =1
 
     for i in range(n):
