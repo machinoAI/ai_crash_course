@@ -34,3 +34,5 @@ def rearrange_array(nums, n):
 
 nums = [1,2,-4,-5]
 print(rearrange_array(nums, 4))
+
+
