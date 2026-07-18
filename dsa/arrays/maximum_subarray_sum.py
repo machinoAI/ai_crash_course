@@ -5,7 +5,7 @@ nums = [-2,1,-3,4,-1,2,1,-5,4]
 
 def max_sub_array(nums):
     current_sum = nums[0]
-    max_sum = nums[0]
+    max_sum = 0 #nums[0]
 
     for i in range(1, len(nums)):
 
