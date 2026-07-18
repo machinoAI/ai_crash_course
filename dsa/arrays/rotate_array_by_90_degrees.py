@@ -31,7 +31,7 @@ matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
 def rotate_array(matrix):
 
-    #Transpose the matrix:
+    #Transpose the matrix: columns becomes rows and rows becomes columns
 
     n =len(matrix)
 
@@ -39,12 +39,12 @@ def rotate_array(matrix):
         for j in range(i+1, n):
              matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 
+        # Reverse the transposed Matrix:
         matrix[i].reverse()
 
 
     return  matrix
 
-    # Reverse the transposed Matrix:
 
 
 
