@@ -45,7 +45,4 @@ def rotate_array(matrix):
 
     return  matrix
 
-
-
-
 print(rotate_array(matrix))
