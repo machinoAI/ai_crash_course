@@ -17,6 +17,40 @@ Example 2:
     Explanation: Index 3 is the smallest index such that arr[3] >= x.
 """
 
+# Brute force:
+def lower_bound_finder(nums, x):
+    for i, num in enumerate(nums):
+        if num >= x:
+            return i
+
+    return len(nums)
+
+nums = [3,5,8,15,19,21,27]
+x = 21
+
+print(lower_bound_finder(nums, x))
+
+
+# Optimized: Best time and space complexity
+def find_lower_bound(nums, x):
+    low, high = 0, len(nums)-1
+    ans =len(nums)
+    while low <= high:
+        mid = (low+high)//2
+
+        if nums[mid] >= x:
+            ans = mid
+            high = mid - 1
+        else:
+           low = mid+1
+    return ans
+
+nums = [3,5,8,15,19]
+x = 9
+
+print(find_lower_bound(nums, x))
+
+# Recursion: O(logn) & O(logn)
 def lower_bound(nums, low, high, x):
 
     if low > high:
