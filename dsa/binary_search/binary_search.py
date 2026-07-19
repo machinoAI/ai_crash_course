@@ -33,3 +33,27 @@ nums = [3,4,6,7,9,12,16]
 target = 12
 
 print(binary_search(nums, target))
+
+# Recursion:
+
+def binary_search(arr, low, high, target):
+    if low > high:
+        return -1
+
+    mid = (low + high)//2
+
+    if target == arr[mid]:
+        return mid
+    elif target > arr[mid]:
+        return binary_search(arr, mid+1, high, target)
+    else:
+        return binary_search(arr, low, mid-1, target)
+
+def search(nums, target):
+    return binary_search(nums, 0, len(nums)-1, target)
+
+
+
+nums = [3,4,6,7,9,12,16]
+target = 4
+print(search(nums, target))
