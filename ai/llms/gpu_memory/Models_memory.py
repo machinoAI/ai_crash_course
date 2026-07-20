@@ -23,7 +23,7 @@
             - How important salary is
             - How important experience is
         Example:
-                Risk = 0.1xage + 5x Salary
+                Risk = 0.1x age + 5x Salary
 
         - Salary matters more.
 
@@ -93,8 +93,6 @@
 7. What is CUDA overhead?
     CUDA overhead is the extra GPU memory consumed by internal buffers, temporary tensors, kernel workspaces,
      memory caching, and communication primitives used by libraries like CUDA, cuBLAS, and cuDNN.
-
-
 
 
 """
