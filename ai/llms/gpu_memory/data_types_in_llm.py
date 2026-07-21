@@ -136,4 +136,6 @@
             Gradient = 0.0000001
             Multiplying = 0.0000001* 10^6
 
+Trade-offs: Use low precision where memory matters, and high precision where numerical stability matters.
+
 """
