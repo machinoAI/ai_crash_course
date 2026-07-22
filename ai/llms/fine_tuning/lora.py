@@ -63,7 +63,7 @@
 
     - Rank r in LoRA controls the dimensionality of the low-rank update matrix ΔW=BA.
     - It determines the adaptation capacity of LoRA  and trades off model quality against memory and compute.
-    - Rank r is the number of directions LoRA is allowed to move in to adapt the pretrained model.
+    - Rank r is the number of independent directions LoRA is allowed to move in to adapt the pretrained model.
 
 Typical Values of r: Trades off:
     4 ->> Very small tasks -->> Less Memory
@@ -159,9 +159,13 @@ Typical Values of r: Trades off:
         - LoRA assumes that most of the energy of the update matrix is concentrated in a few singular directions.
 
 
+9. Why does low-rank adaptation work?
+    - Existing knowledge already exists.
+    - We only need domain adaptation.
+    - Researchers empirically found that the difference between pretrained and fine-tuned weights often has
+     low intrinsic rank.
 
-
-9. Notes:
+10. Notes:
     - Hidden size (H): The dimensionality of the token representation inside the transformer.
     - Embedding dimension: Another name for hidden size in most transformer architectures.
     - Head dimension: Hidden size divided by the number of attention heads.
