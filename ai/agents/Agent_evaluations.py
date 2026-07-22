@@ -3,7 +3,7 @@ AI Evaluation Metrics: Put into two buckets
 
 1. Business Metrics: Most import for PMs , CIOs.
   - Goal Completion metrics:    Which tells actually the agents were able to complete the objectives or not (Binary)?
-  - Progress Rate:              How fard did agent move towards the goal: Agent failing at 2nd step is different than 9th step.
+  - Progress Rate:              How far did agent move towards the goal: Agent failing at 2nd step is different-than  failing at 9th step.
 
 2. Technical metrics:
   - Tool correctness:           How exactly agent was able to predict the tool.
