@@ -53,7 +53,7 @@
 
     ΔW=BA
         where A = A^(dxr)
-            B = A^(rxk)
+            B = B^(rxk)
 
         where r is the rank
             and r << d, k
@@ -159,11 +159,9 @@ Typical Values of r: Trades off:
         - LoRA assumes that most of the energy of the update matrix is concentrated in a few singular directions.
 
 
-9. How do we choose r?
 
 
-
-10. Notes:
+9. Notes:
     - Hidden size (H): The dimensionality of the token representation inside the transformer.
     - Embedding dimension: Another name for hidden size in most transformer architectures.
     - Head dimension: Hidden size divided by the number of attention heads.
