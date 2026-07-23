@@ -43,6 +43,41 @@
         How should I act ?
 
 
+4. How do agents decide the next action?
+    - Rule-based routing
+    - LLM planning
+        - Available tools:
+            1. Search
+            2. SQL
+            3. Calculator
+            Choose next action.
+            LLM decides.
 
+    - ReAct pattern
+        Thought:
+        Need customer information.
+
+        Action:
+        Query database.
+
+        Observation:
+        Customer premium.
+
+        Thought:
+        Offer premium support.
+
+    - Planning approaches
+
+5. How do you prevent infinite loops?
+    - Maximum iteration limit
+    - Duplicate action detection
+        - prevent: Search() ->>  Search() -->>  Search()-->>  Search()
+    - Cost budget:
+        max_tokens = 50000
+    - Time budget
+        max_time = 30 seconds
+    - Confidence threshold
+        confidence < 0.6
+    - 
 
 """
