@@ -28,6 +28,7 @@ def find_minimum_rotated_sorted_array(nums):
             min_value = min(min_value, nums[low])
             low = mid+1
         else:
+            min_value = min(min_value, nums[mid])
             high = mid-1
 
     return min_value
