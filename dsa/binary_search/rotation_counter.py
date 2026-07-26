@@ -17,7 +17,7 @@ Explanation: The original array should be [1,2,3,4,5]. So, we can notice that th
 
 def rotation_counter(nums):
 
-    for i, num in enumerate(nums):
+    for i  in range(len(nums)-1):
         if nums[i] >= nums[i+1]:
             return i+1
 
@@ -33,17 +33,20 @@ def rotation_counter(nums):
     low = 0
     high =len(nums)-1
 
-    while low <= high:
+    while low < high:
 
         mid = low + (high-low)//2
 
         # if mid-element is greater than element at high
         # smallest lies to right of mid
-        if nums[mid] >= nums[high]:
+        if nums[mid] > nums[high]:
             low = mid+1
         else:
             # else smallest element is at mid or to the left.
-            high= mid
+            high = mid
 
     # when Low ==high, we find the smallest element
     return low
+
+
+print(rotation_counter(nums))
