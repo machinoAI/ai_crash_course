@@ -25,6 +25,7 @@ def search_single_element(nums):
 nums = [1, 1, 3, 5, 5]
 nums = [1, 1, 2, 2, 3, 3, 4, 5, 5, 6, 6]
 nums = [2,3,3,4,4]
+nums = [7]
 
 print("Brute Force: ", search_single_element(nums))
 
