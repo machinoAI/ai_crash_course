@@ -27,12 +27,28 @@ def koko_eating_banana( nums, h):
 
     return -1
 
-
-
-
-
 nums = [7, 15, 6, 3]
 h = 8
 nums = [25, 12, 8, 14, 19]
 h = 5
+print( koko_eating_banana(nums, h))
+
+def koko_eating_banana( nums, h):
+
+    low = 1
+    high = max(nums)
+
+    while low < high:
+
+        mid = (low+high)//2
+
+        sums = sum((x+mid-1)//mid for x in nums)
+
+        if sums <= h:
+            high = mid
+        else:
+            low = mid+1
+
+    return  low
+
 print( koko_eating_banana(nums, h))
