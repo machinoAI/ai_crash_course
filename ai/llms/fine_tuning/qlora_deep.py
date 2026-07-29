@@ -79,8 +79,79 @@
 
 9. What happens in one forward and backward pass during QLoRA training?
 
+    - Load the quantized weights:   The base model weights are stored in NF4 (4-bit).
+    - Dequantize for computation:   Each loaded block is temporarily converted to BF16.
+    - Forward pass:   The transformer computes normally.
+
+        Input
+           ↓
+        Base Model Output
+           +
+        LoRA Output
+           ↓
+        Final Layer Output
+
+    Mathematically:
+
+            Y = XW + XΔW
+
+    - Compute the loss:
+        Prediction ->> Cross entropy loss
+
+    - Backward pass:    Now gradients are computed.
+        Base Model (Frozen)
+             ❌ No gradient update
+
+        LoRA A
+                ✅ Gradient
+
+        LoRA B
+                ✅ Gradient
+
+        - Only the LoRA matrices receive gradients.
+
+    - Optimizer step: The optimizer updates:
+
+        LoRA A
+
+        LoRA B
+
+        The quantized base model remains unchanged.
+
+            - NF4 Base Model
+              │
+              ▼
+            Dequantize to BF16
+                  │
+                  ▼
+            Forward Pass
+                  │
+                  ▼
+            Add LoRA Output
+                  │
+                  ▼
+            Prediction
+                  │
+                  ▼
+            Loss
+                  │
+                  ▼
+            Backward Pass
+                  │
+                  ▼
+            Update ONLY LoRA
 
 
+- Dequantize NF4 → BF16 for computation.
+- Compute output using Base Model + LoRA.
+- Update only LoRA during backpropagation.
+
+10. What are the main hyperparameters in QLoRA?
+    - Rank (r) :        Controls the size (capacity) of the LoRA adapter by determining the rank of the low-rank matrices.
+    - Alpha (α) :       Scaling factor applied to the LoRA update, Controls how strongly the LoRA adapter influences the base model.
+    - LoRA Dropout:     Applies dropout only to the LoRA adapter during training to reduce overfitting.
+    - Target Modules:   Specifies which transformer layers receive LoRA adapters (e.g., q_proj, k_proj, v_proj, o_proj, FFN layers).
+    - Learning Rate:    Controls how much the LoRA adapter weights are updated in each optimization step.
 
 
 """
