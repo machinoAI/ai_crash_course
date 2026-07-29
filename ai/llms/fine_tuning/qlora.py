@@ -77,6 +77,5 @@ the end returns the final output.
 
 - Think of QLoRA as streaming the model through the GPU a few blocks at a time, rather than
     inflating the entire model into memory before computation.
-11.
 
 """
