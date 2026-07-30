@@ -79,4 +79,43 @@ Total around 11- 16GB.
     - Learning rate too high.
     - Saving the full model instead of the adapter.
     - Loading an adapter with the wrong base model.
+
+11. What is TRL ( Transformer reinforcement learning) ?
+    - The normal Hugging Face Trainer works well for traditional supervised learning.
+    - But LLMs often require specialized training methods such as:
+
+    - Supervised Fine-Tuning (SFT)
+    - RLHF (Reinforcement Learning from Human Feedback)
+    - DPO (Direct Preference Optimization)
+    - PPO (Proximal Policy Optimization)
+    - ORPO
+    - GRPO
+
+    Implementing these from scratch is difficult. TRL provides ready-made trainers.
+
+    | Library          | Responsibility                             |
+    | ---------------- | ------------------------------------------ |
+    | Transformers | Load pretrained models and tokenizers      |
+    | bitsandbytes | Quantization (4-bit/8-bit)                 |
+    | PEFT         | LoRA/QLoRA adapters                        |
+    | TRL          | **Training the LLM** (SFT, DPO, PPO, RLHF) |
+    | Accelerate   | Multi-GPU and mixed-precision training     |
+    | DeepSpeed    | Large-scale distributed training           |
+
+
+Example:
+    from trl import SFTTrainer
+
+    trainer = SFTTrainer(
+        model=model,
+        train_dataset=dataset,
+    )
+
+Internally, it handles:
+    - batching,
+    - loss computation,
+    - backpropagation,
+    - optimizer steps,
+    - checkpointing,
+    - evaluation.
 """
