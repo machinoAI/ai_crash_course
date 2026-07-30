@@ -53,4 +53,30 @@ Total around 11- 16GB.
     - The adapters are very small (often only a few MB to hundreds of MB), making them easy to store, share, and load with the original base model.
 
 
+8. Hugging Face Training Stack:
+    Transformers → Model, bitsandbytes → Quantization, PEFT → LoRA, TRL → Training, Accelerate → Multi-GPU, DeepSpeed → Scale.
+
+9. End-to-End QLoRA Code Pipeline:
+
+    Load Pretrained Model
+        ↓
+    Quantize using bitsandbytes (NF4)
+            ↓
+    Attach LoRA adapters (PEFT)
+            ↓
+    Load & Tokenize Dataset
+            ↓
+    Train (TRL/HF Trainer)
+            ↓
+    Save LoRA Adapter
+            ↓
+    Load Adapter for Inference
+
+10. Common Production Mistakes:
+    - Forgetting to freeze the base model.
+    - Wrong target modules.
+    - LoRA rank too high/low.
+    - Learning rate too high.
+    - Saving the full model instead of the adapter.
+    - Loading an adapter with the wrong base model.
 """
