@@ -154,4 +154,18 @@
     - Learning Rate:    Controls how much the LoRA adapter weights are updated in each optimization step.
 
 
+11. How would you fine-tune a 70B model on a single 48 GB GPU using QLoRA?
+    Describe the complete pipeline:
+
+    - Load pretrained model.
+    - Quantize using NF4.
+    - Apply Double Quantization.
+    - Attach LoRA adapters.
+    - Freeze base model.
+    - Train LoRA adapters.
+    - Use Paged Optimizer.
+    - Save only LoRA adapters.
+    - Merge adapters (optional) for inference.
+
+    This is a very common system design / applied ML interview question.
 """
