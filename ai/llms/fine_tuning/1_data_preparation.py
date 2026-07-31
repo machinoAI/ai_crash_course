@@ -84,5 +84,67 @@
     - Clean the data, remove duplicates, normalize formatting, validate labels, apply the correct chat template,
      tokenize, split into train/validation sets, and perform quality checks before training.
 
+13. What is a Data Collator?
+    - A Data Collator converts a list of tokenized samples into a model-ready batch by applying padding and other batch-level preprocessing.
+
+    Example:
+    - After tokenization, suppose you have:
+        Sample 1: [101, 23, 45]
+        Sample 2: [101, 56, 78, 90, 34]
+        Sample 3: [101, 12]
+
+    - These sequences have different lengths.
+    - A GPU cannot stack them directly into a tensor.
+
+    - Solution:
+        - A Data Collator takes a list of samples and converts them into one batch.
+
+        - It performs operations like:
+            - Padding
+            - Creating attention masks
+            - Creating labels (if required)
+
+            Pipeline: Dataset
+                        ↓
+                    DataLoader
+                        ↓
+                    Data Collator
+                        ↓
+                    Batch Tensor
+                        ↓
+                    Model
+
+14. Why not batch manually?
+    - Technically you can.
+        batch = [
+                 sample1,
+                 sample2,
+                 sample3
+                ]
+    - But manual batching becomes tedious and inefficient.
+    - The collator automatically handles these differences for every batch.
+
+15. What is Dynamic Padding?
+    - In the fixed padding waste a lot of computation even the actual information is very less.
+    - Dynamic padding a saved a lot of computation as the max size becomes the padding size.
+
+16. Why mask prompt tokens?
+    - Because during supervised fine-tuning:
+    - We already know the prompt.
+    - We only want the model to predict the assistant response.
+
+17. What is a CPU Bottleneck?
+    - Training pipeline:
+        CPU
+            ↓
+        GPU
+
+        If the CPU cannot prepare batches fast enough:
+
+        GPU waits. Those gaps are idle time.
+        - The GPU is expensive, so idle time should be minimized.
+
+18.
+
 
 """

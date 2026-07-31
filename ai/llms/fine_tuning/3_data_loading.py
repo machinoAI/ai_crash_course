@@ -37,5 +37,6 @@
 10. What is pin_memory=True?
     pin_memory=True allocates page-locked (pinned) CPU memory, allowing faster data transfer from CPU to GPU. It is beneficial when training on CUDA GPUs.
 
+11.
 
 """
