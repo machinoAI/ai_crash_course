@@ -90,5 +90,29 @@
         Next Token
 
 
+6. What is Encoder ?
+
+    - The encoder transforms input tokens into contextual embeddings that captures the meaning of
+        each token based on the entire input sequence.
+
+
+    - Input tokens ->> Embedding + Positional Encoding -->> Multiple Encoder Layers -->> Output (Hidden States)
+
+    - Each hidden state is a vector representing a token after considering the full context.
+
+7. What does an encoder do ?
+
+    1. Converts token IDs → embeddings.
+    2. Adds positional information.
+    3. Applies bidirectional self-attention (every token attends to every other token).
+    4. Passes through Feed Forward Networks (MLP)
+    5. Produces contextual representations for every input token.
+
+Examples:
+        - BERT
+        - RoBERTa
+        - DistilBERT
+
+
 
 """
