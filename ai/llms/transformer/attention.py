@@ -46,6 +46,7 @@
         - Training Unstable
 
 4. Why softmax in attention ?
+    - Convert scores to probabilities.
     - Softmax sharpens attention because -- exponential scaling magnifies score differences
         loading to sparse probability distribution.
 
@@ -100,9 +101,99 @@
         = (T x T) x (T x d) =>> T x d (back to original dimension)
 
 
+6. What are types of attentions ?
+
+    - Self-attention : Every token attends to every other tokens
+        - GPT, BERT
+
+    - Cross-Attention: One sequence attends to another sequence
+        - Machine translation, T5 , BART
+
+    - Masked (causal) Self-attention: A special type of self-attention where future tokens are hidden
+        - GPT
+
+    - Single Head Attention: Only one attention mechanism
+    - Multi-Head attention: Many attentions head where each head learns new relationship.
+
+    - Multi-Query Attention: Each head has different query but shared key and shared value.
+        - Much smaller KV Cache
+        - Faster Inference
+        - Used in PaLM
+
+    - Grouped Query Attention: Multiple query heads share the same key and value heads within a group, instead of each query head having its own key and value.
+    - This reduces the number of Key and Value tensors that must be stored and retrieved, significantly lowering
+        KV cache memory and improving inference speed, while maintaining accuracy close to Multi-Head Attention (MHA).
+            - Llama-2, Llama-3 , Mistral , Gemma etc
+
+    - Dense Attention: Every token attends to every token
+        - All <--> All
+        - Complexity O(T^2)
+        - Standard Transformer
+
+    - Sparse Attention: Attend only to selected attention
+        - LongFormer
+        - BigBird
+
+    - Sliding Window Attention: Only nearby tokens.
+        - Window => [5 previous] => Current [ 5 next ]
+        - Used By Mistral
+
+    - Linear Attention: Avoids building the T×T matrix.
+        - Complexity : O(T)
+        - Good for very long sequences.
+
+    - Flash Attention: FlashAttention computes the same attention as standard Transformers but
+        processes it in memory-efficient tiles, avoiding storage of the full attention matrix and
+        significantly accelerating training and inference on GPUs.
+
+        - Standard Attention:
+            Q × Kᵀ
+              ↓
+        Attention Scores (T × T)
+              ↓
+        Store in GPU Memory
+              ↓
+            Softmax
+              ↓
+            Store Again
+              ↓
+        Multiply with V
+              ↓
+            Output
+
+
+    - The large T×T matrix is written to and read from GPU memory multiple times.
+    - This data movement is expensive.
+
+    But in Flash Attention:
+        - Instead of computing the entire matrix at once, FlashAttention processes it in small tiles.
+        - Imagine splitting the matrix into blocks:
+            +-----+-----+-----+
+            | A11 | A12 | A13 |
+            +-----+-----+-----+
+            | A21 | A22 | A23 |
+            +-----+-----+-----+
+            | A31 | A32 | A33 |
+            +-----+-----+-----+
+
+        - It computes one block, immediately applies the necessary operations (including softmax),
+            updates the output, and then discards the block.
+
+        - The full attention matrix is never stored in GPU memory.
+
+    Why is Flash Attention faster?
+
+        - FlashAttention minimizes slow accesses to GPU high-bandwidth memory (HBM) by keeping intermediate computations in the much faster on-chip shared memory (SRAM).
+        This leads to:
+            - Less memory traffic.
+            - Better GPU utilization.
+            - Higher throughput.
 
 
 
+    - Encoder Attention
+    - Decoder Attention
+    - Encode - decoder attention.
 
 
 
