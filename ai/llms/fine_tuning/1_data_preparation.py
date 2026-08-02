@@ -144,7 +144,6 @@
         GPU waits. Those gaps are idle time.
         - The GPU is expensive, so idle time should be minimized.
 
-18.
 
 
 """
