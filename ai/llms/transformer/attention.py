@@ -103,46 +103,49 @@
 
 6. What are types of attentions ?
 
-    - Self-attention : Every token attends to every other tokens
+    1. Self-attention : Every token attends to every other tokens
         - GPT, BERT
 
-    - Cross-Attention: One sequence attends to another sequence
+    2. Cross-Attention: One sequence attends to another sequence
         - Machine translation, T5 , BART
 
-    - Masked (causal) Self-attention: A special type of self-attention where future tokens are hidden
-        - GPT
+    3. Masked (causal) Self-attention: A special type of self-attention where future tokens are hidden
+        Example:  GPT
 
-    - Single Head Attention: Only one attention mechanism
-    - Multi-Head attention: Many attentions head where each head learns new relationship.
 
-    - Multi-Query Attention: Each head has different query but shared key and shared value.
+    4. Single Head Attention: Only one attention mechanism
+    5. Multi-Head attention: Many attentions head where each head learns new relationship.
+
+    6. Multi-Query Attention: Each head has different query but shared key and shared value.
         - Much smaller KV Cache
         - Faster Inference
         - Used in PaLM
 
-    - Grouped Query Attention: Multiple query heads share the same key and value heads within a group, instead of each query head having its own key and value.
-    - This reduces the number of Key and Value tensors that must be stored and retrieved, significantly lowering
-        KV cache memory and improving inference speed, while maintaining accuracy close to Multi-Head Attention (MHA).
+    7. Grouped Query Attention: Multiple query heads share the same key and value heads within a group,
+            instead of each query head having its own key and value.
+
+        - This reduces the number of Key and Value tensors that must be stored and retrieved, significantly lowering
+            KV cache memory and improving inference speed, while maintaining accuracy close to Multi-Head Attention (MHA).
             - Llama-2, Llama-3 , Mistral , Gemma etc
 
-    - Dense Attention: Every token attends to every token
+    8. Dense Attention: Every token attends to every token
         - All <--> All
         - Complexity O(T^2)
         - Standard Transformer
 
-    - Sparse Attention: Attend only to selected attention
+    9. Sparse Attention: Attend only to selected attention
         - LongFormer
         - BigBird
 
-    - Sliding Window Attention: Only nearby tokens.
+    10. Sliding Window Attention: Only nearby tokens.
         - Window => [5 previous] => Current [ 5 next ]
         - Used By Mistral
 
-    - Linear Attention: Avoids building the T×T matrix.
+    11. Linear Attention: Avoids building the T×T matrix.
         - Complexity : O(T)
         - Good for very long sequences.
 
-    - Flash Attention: FlashAttention computes the same attention as standard Transformers but
+    12. Flash Attention: FlashAttention computes the same attention as standard Transformers but
         processes it in memory-efficient tiles, avoiding storage of the full attention matrix and
         significantly accelerating training and inference on GPUs.
 
@@ -189,12 +192,69 @@
             - Better GPU utilization.
             - Higher throughput.
 
+7. What types of attention being used in the modern LLMs ?
+    - Causal Attention + GQA + Flash Attention.
+
+    Example:
+            def attention(x):
+
+                Q = project_query(x)      # 8 heads
+                K = project_key(x)        # 4 heads (GQA)
+                V = project_value(x)      # 4 heads (GQA)
+
+                K = repeat_groups(K)
+                V = repeat_groups(V)
+
+                output = flash_attention(
+                    Q,
+                    K,
+                    V,
+                    causal=True
+                )
+
+                return output
 
 
-    - Encoder Attention
-    - Decoder Attention
-    - Encode - decoder attention.
+Note:
+- With 8 heads and a model dimension of 512, the model projects the input into eight independent 64-dimensional
+    Q, K, and V representations ( 1 x 8 x 64). Each head computes attention in parallel on its own 64-dimensional subspace.
+    Their outputs are concatenated, projected back to 512 dimensions, and all projection matrices are updated
+    during backpropagation.
+
+Question:
+    - In multi-head attention each of the heads process: ( 1 x 8 x 64)
+    - And it learns different values of Q,K, V across the attention.
+    - And at the end we merge them all to get the final weights.
+
+  Why not keep a single attention ?
+    - Answer is more empirical than theoretical, single attention exist but that not perform as good as multi-head attention.
+    - How single head attention is different than multi-head attention ?
 
 
+8. What is weight tying ?
+    - Weight tying shares the input embedding matrix with the output LM head by using its transpose during output prediction.
+    - This reduces parameters and aligns the input and output token representations in the same embedding space.
 
+9. What is Wₒ ?
+    - Wₒ is a trainable weight matrix.
+    - It is randomly initialized and learned during training through backpropagation.
+
+10. Why do we need the Output Projection (Wₒ)?
+    - The output projection (Wₒ) is a learned linear layer applied after concatenating all attention heads.
+    - It combines information from different heads into a single unified representation and maps it back
+        to the model dimension.
+
+    Example:
+            Head1 ... 1x64
+            Head2 ... 1x64
+            ...
+            ...
+            Head8 ... 1x64
+
+            concatenate(H1,H2,h3,...,Head8) = 1x512
+            since 4 tokens(Curiosity kill the cat) = 4x512
+
+            Now Wₒ = 512x512
+
+        So final attention gets calculated = (4x512)x (512 x 512) =>> 4x512
 """
