@@ -62,8 +62,14 @@
     - Hence each process has its own variables, memory.
 
 
-6.
+6. Why does threading not require this?
+    - Thread(...) :
+        - It does not start another Python interpreter.
+        - It simply creates another thread inside the same process.
+        - No file is re-executed.
+        - No recursion.
 
 
+7.
 
 """

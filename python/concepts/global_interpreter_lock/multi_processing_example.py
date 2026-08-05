@@ -7,8 +7,11 @@ def worker():
     x = 20
     print(x)
 
-p1 = Process(target=worker)
-p2 = Process(target=worker)
 
-p1.start()
-p2.start()
+if __name__ == "__main__":
+
+    p1 = Process(target=worker)
+    p2 = Process(target=worker)
+
+    p1.start()
+    p2.start()
