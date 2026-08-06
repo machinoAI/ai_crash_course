@@ -5,8 +5,6 @@
 
 """
 
-
-
 from multiprocessing import Process, Value, Lock
 
 def worker(counter, lock):

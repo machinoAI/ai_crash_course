@@ -6,9 +6,18 @@
     - Worker processes run in parallel, but updates to a Manager object are serialized because
         they are handled by a single Manager process.
 
+    - Types supported Objects by manager:
+
+        manager.list()
+        manager.dict()
+        manager.set()
+
+        manager.Namespace()
+        manager.Lock()
+        manager.Queue()
+
+
 """
-
-
 
 from multiprocessing import Process, Manager
 
