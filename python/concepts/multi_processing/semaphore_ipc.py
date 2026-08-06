@@ -3,7 +3,7 @@
     - A Semaphore is a synchronization primitive that allows a fixed number of threads or processes to access a shared resource simultaneously.
 
 
-- Why do we need Semaphore?
+18. Why do we need Semaphore?
     - Suppose you have 100 worker processes but Only 3 database connections
     - Can all 100 use the database simultaneously?
         - NO

@@ -131,4 +131,19 @@
     | Socket                   | Communication across machines       |
     | Event / Lock / Semaphore | Synchronization                     |
 
+10. Comparison:
+
+| Primitive     | Controls              | Use Case                | Analogy  |
+| -------------| --------------------- | ----------------------- |----------|
+| Lock        | One process at a time | Prevent race conditions | One Lane Bridge ->> Only one car
+| Semaphore  | N processes at a time | Limit concurrency       | Parking Lot ->> 20 cars
+| Event     | Signal/Notification   | Coordinate execution    | Traffic Light-Red -- >> All Stop --> Green ->> All go
+
+
+11. Lock vs Semaphore vs Event:
+
+    | Lock          | Semaphore   | Event         |
+| ------------- | ----------- | ------------- |
+| One at a time | N at a time | Signal/Notify |
+
 """
