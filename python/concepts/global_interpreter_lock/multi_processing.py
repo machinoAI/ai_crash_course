@@ -95,6 +95,45 @@
             Child Process
             (Copy of Parent)
 
-        - Forkserver:
+        - Forkserver: Forkserver starts a dedicated server process that forks all future child processes.
 
+            Main Process
+                  │
+                  ▼
+            Fork Server
+                  │
+             ┌────┴────┐
+             ▼         ▼
+            Child 1   Child 2
+
+8. Comparison:
+    | Feature                | Spawn | Fork  | Forkserver          |
+    | ---------------------- | ----- | ----- | ------------------- |
+    | Starts new interpreter | ✅ Yes | ❌ No  | ❌ No                |
+    | Copies parent memory   | ❌ No  | ✅ Yes | ✅ Yes (from server) |
+    | Fast                   | ❌     | ✅     | ✅                   |
+    | Safe with threads      | ✅     | ❌     | ✅                   |
+    | Default on Windows     | ✅     | ❌     | ❌                   |
+    | Default on Linux       | ❌     | ✅     | ❌                   |
+    | Default on macOS       | ✅     | ❌     | ❌                   |
+
+
+9. What is IPC (Inter-Process Communication)?
+    - IPC is the mechanism that allows separate processes to exchange data and synchronize their execution.
+    - Processes communicate using IPC.
+
+    | IPC Mechanism            | Purpose                             |
+    | ------------------------ | ----------------------------------- |
+    | Queue                    | Many-to-many communication          |
+    | Pipe                     | One-to-one communication            |
+    | Shared Memory            | Share the same data without copying |
+    | Manager                  | Share Python objects                |
+    | Socket                   | Communication across machines       |
+    | Event / Lock / Semaphore | Synchronization                     |
+
+
+10. What is a Queue?
+    A Queue is an IPC mechanism that allows multiple processes to safely exchange data using FIFO (First In, First Out).
+
+11. 
 """
