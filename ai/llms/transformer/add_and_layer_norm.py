@@ -78,10 +78,15 @@
         [-3, -1, 1, 3]
 
     - Compute the standard deviation and divide by it:
-        [-1.34, -0.45, 0.45, 1.34]
+        Normalized = (x - μ) / (σ + ε)
 
+        Normalized = [-1.34, -0.45, 0.45, 1.34]
 
-    - Then apply two learnable parameters:
+    Where :
+        - ε (epsilon) is a very small constant added to prevent division by zero.
+        -
+
+    - Then apply two learnable parameters: This stabilizes activations and improves training of deep Transformers.
         Output = γ × normalized + β
 
         where:
@@ -89,9 +94,6 @@
             β learns the shift.
 
             - These are trained with the rest of the model.
-
-
-
 
 
 """
