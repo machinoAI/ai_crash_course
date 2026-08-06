@@ -3,6 +3,11 @@
     - A Lock is a synchronization primitive that allows only one thread or process to access a shared resource at a time,
         preventing race conditions.
 
+    - A Lock ensures that only one thread or process accesses a critical section at a time.
+
+    - Does a Lock stop parallelism?
+        - No. It only serializes the critical section. The rest of the code can still execute in parallel.
+
 """
 
 from multiprocessing import Process, Value, Lock
