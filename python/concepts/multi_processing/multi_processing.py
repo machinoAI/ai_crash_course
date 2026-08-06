@@ -133,7 +133,13 @@
 
 
 10. What is a Queue?
-    A Queue is an IPC mechanism that allows multiple processes to safely exchange data using FIFO (First In, First Out).
+    - A Queue is an IPC mechanism that allows multiple processes to safely exchange data using FIFO (First In, First Out).
+    - Many-to-many communication
 
-11. 
+
+11.  What is a Pipe?
+    - A Pipe is an IPC mechanism that provides a direct communication channel between two processes.
+    - One-to-one communication
+
+12. 
 """
