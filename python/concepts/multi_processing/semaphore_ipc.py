@@ -9,7 +9,9 @@
         - NO
         - Instead Semaphore ensures only 3 process access the database remaining wait.
 
-
+- A Semaphore controls concurrency by limiting the number of threads or processes that can access a shared resource simultaneously.
+- Semaphore = Concurrency Controller
+- Rate Limiter = Time-based Controller
 """
 from multiprocessing import Process, Semaphore
 import time
