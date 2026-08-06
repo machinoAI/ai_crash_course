@@ -9,6 +9,9 @@
         -->> Language Model Head -->> SoftMax
 
 
+0. Where to apply to add & LayerNorm ?
+    - After each sub-players we apply: Residual connections(Add) and LayerNorm.
+
 
 1. What is Add  in 'add & LayerNorm' in transformer ?
 
@@ -36,6 +39,10 @@
             Output = Original + Small Change
 
     - It preserve the original input even there is loss of information in attention output.
+    - Help gradient flow
+    - Prevents vanishing gradient
+    - Allows deeper model
+
 
             Original Chapter
                 │

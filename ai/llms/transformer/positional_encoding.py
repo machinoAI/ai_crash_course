@@ -1,4 +1,99 @@
 """
+1. What is positional Embeddings ?
 
+    - Since self attention is permutation invariant, position encoding is added to token embeddings
+        to inject sequence order information
+
+    - The original transformer uses sinusoidal functions to encode positions.
+
+2. Why do we need positional encoding ?
+
+    - Transformer process all tokens in parallel, so sentence
+        "Dog bites man"
+        "man bites dog"
+
+    Embeddings alone can not tell who is first.
+
+    - Attention is order agnostic, So we must inject position information.
+
+3. What is position encoding ?
+    - It is vector added to token embedding.
+    - To tell model:
+        "This word is at position1 and this at position2..."
+
+
+    Formula:
+
+        Final Input = Token embeddings + Position encoding
+
+4. What is Sinusoidal Position Encoding (SPE) ?
+
+    - For position Pos and dimension i,
+
+    PE (pos, 2i) = Sin(pos/ 10000^(2i/d_model)
+
+    PE(pos, 2i+1) = cos(pos/ 10000^(2i/d_model)
+
+    where:
+        pos = token position (0, 1, 2, ...)
+        i = embedding dimension index
+        d_model = embedding dimension (e.g., 512, 768, 4096)
+
+
+5. How does positional encoding works ?
+    - Say we have embeddings e1, e2, e3 ...e512.
+    - And positional encoding we calculated
+        p1, p2,p3,....p512.
+
+    Then we simply add these two:
+        e1+p1, e2+p2, e3+p3, ... , e512+p512
+
+
+6. What is Rotary Positional Encoding or RoPE ?
+
+    -  Instead of adding Positional vectors like Sinusoidal PE,
+        RoPE rotates the Q and K vectors in vector space based on position
+
+    So, position is encoded via angle rotation.
+
+ Core Idea:
+    Each token vector  = Arrow in 2D plane
+    Position  =  Rotation angle
+
+    So,
+        Token at position1 ->> Small rotation
+        Token at position2 ->>  Bigger rotation
+
+    Thus,
+        Relative distance becomes naturally encoded.
+
+
+How it works ?
+    - Instead of Q = XWq
+                K = XWk
+
+    we do:
+        Q' = Rotate(Q, position)
+        K' = Rotate(K, position)
+
+    Then Attention
+        = SOftmax((Q'K'^T)sqrt(d_k) x V
+
+
+7. Why RoPE is powerful ?
+
+    - Encodes relative position naturally
+        - Long Context understanding
+        - Better generalization
+    - Works well for very long sequence
+    - No extra parameter
+
+    Analogy:
+        - Embedding ->>Car direction
+        - Position ->> Steering angle
+        RoPE ->> Turn steering wheel slightly at each token.
+
+
+    So Model know, How far I have travelled in sentence.
 
 """
