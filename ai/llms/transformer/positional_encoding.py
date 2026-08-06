@@ -96,4 +96,40 @@ How it works ?
 
     So Model know, How far I have travelled in sentence.
 
+
+8. What is learned PE ?
+    - Sinusoidal PE is fixed
+    - Learned Positional Embeddings use a trainable embedding matrix where each position has its own learnable vector.
+    - These vectors are added to token embeddings.
+    - Unlike sinusoidal encodings, they are optimized during training but cannot naturally generalize to positions beyond the training context length.
+
+9. What is Relative Positional Encoding ?
+    - Relative Positional Encoding represents the relative distance between tokens rather than their absolute positions.
+    - This helps the model focus on relationships such as 'previous token' or 'next token' and improves generalization to longer sequences.
+    - Example:
+        "Curiosity skilled the cat"
+
+            Do you really care "cat" is coming at last or  "cat" is coming after the "skilled" ?
+
+    Advantages:
+        - Better for long sequences.
+        - Captures relative relationships naturally.
+        - Generalizes better.
+
+10. What are limitations of RoPE ?
+    - Very Long context (1M) , The rotation angle become less effective.
+        - Attention quality degrades.
+
+    - Originally trained on 4096 tokens running at 128k requires scaling tricks.
+        - Example: LongRoPE, NTK Scaling, YaRN
+
+    - Still quadratic attention.
+        - Attention complexity still O(T^2)
+
+    
+
+
+
+
+
 """
