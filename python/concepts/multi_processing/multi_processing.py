@@ -131,26 +131,4 @@
     | Socket                   | Communication across machines       |
     | Event / Lock / Semaphore | Synchronization                     |
 
-
-10. What is a Queue?
-    - A Queue is an IPC mechanism that allows multiple processes to safely exchange data using FIFO (First In, First Out).
-    - Many-to-many communication
-    - Bidirectional needs to design not in-built like pipe.
-
-
-11.  What is a Pipe?
-    - A Pipe is an IPC mechanism that provides a direct communication channel between two processes.
-    - One-to-one communication
-    - It is bidirectional.
-    - Process A  <=========>  Process B
-
-12. When deadlock occurs ?
-    - A deadlock occurs when two or more processes wait indefinitely for each other to perform an action,
-        preventing any of them from making progress.
-
-
-13. What is Shared Memory?
-    - Shared Memory is an IPC mechanism that allows multiple processes to access the same memory region without copying data.
-
-14. 
 """

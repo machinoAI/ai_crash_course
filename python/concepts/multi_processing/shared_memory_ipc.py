@@ -1,3 +1,14 @@
+"""
+13. What is Shared Memory?
+    - Shared Memory is an IPC mechanism that allows multiple processes to access the same memory region without copying data.
+
+14. Why do we use NumPy with Shared Memory?
+    - Because NumPy arrays can directly use a shared memory buffer, allowing multiple processes to access the
+        same large dataset without copying it.
+
+
+"""
+
 from multiprocessing import Process, shared_memory
 import numpy as np
 
