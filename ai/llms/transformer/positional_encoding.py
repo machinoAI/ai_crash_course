@@ -126,9 +126,11 @@ How it works ?
     - Still quadratic attention.
         - Attention complexity still O(T^2)
 
-    
 
+11. Difference:
+    - Sinusoidal Positional Encoding uses sin and cos to create a positional vector that is added to the embeddings.
 
+    -RoPE uses the same sine and cosine functions, but instead of adding a vector, it rotates the Q and K vectors.
 
 
 

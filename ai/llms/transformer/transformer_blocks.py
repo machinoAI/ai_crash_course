@@ -130,16 +130,4 @@
         - How to combine attention heads (Wₒ)
         - Normalization parameters
 
-10. Why do we need an MLP after Attention?
-    - Attention gathers relevant information from other tokens, while the MLP transforms that information
-        into richer, non-linear features. Without the MLP, the model would mostly mix information but
-        have limited ability to learn complex patterns.
-
-
-
-11. Why is the MLP usually 4× the model dimension?
-    - The MLP first expands the hidden dimension (typically 4×) to create a larger feature space for learning
-        complex representations, then projects it back to the original model dimension.
-        The 4× ratio is an empirically successful design choice that balances model capacity and computational cost.
-
 """
