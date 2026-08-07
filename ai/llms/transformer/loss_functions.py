@@ -37,4 +37,11 @@
     - Cross-Entropy directly optimizes these probability distributions, penalizes confident wrong predictions
         much more strongly, and provides more informative gradients for training.
 
+6. Only cross entropy Loss used in transformer ?
+
+    - Cross-Entropy remains the standard loss for language model pretraining and supervised fine-tuning because both are next-token prediction tasks.
+    - For alignment and preference optimization, objectives such as PPO, DPO, or GRPO are used instead,
+        since the goal shifts from predicting tokens to optimizing response quality according to human preferences.
+
+
 """
