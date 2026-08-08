@@ -222,6 +222,7 @@
     for i in range(100):
         x = np.dot(A, B)
 
-    - Here in this case, since it continuously
+    - Here in this case, since it's continuously running and doing dot product,
+        for each iteration it will release the GIL as it hand over the dot product to numpy which is in c/c++.
 
 """

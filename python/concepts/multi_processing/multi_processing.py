@@ -72,8 +72,10 @@
 
 7. What is spawn, fork, and forkserver?
     - A start method defines how a new child process is created from the parent process.
+
     - Python provides three methods:
-        - Spawn (Windows & macOS Default): It starts a completely new Python interpreter and imports the main module from scratch.
+        - Spawn (Windows & macOS Default): It starts a completely new Python interpreter and imports the
+            main module from scratch.
 
             Parent Process
                   │
@@ -86,7 +88,9 @@
             Own GIL
 
 
-        - Fork(Linux Default) : Fork creates a child process by copying the parent process, including its memory and interpreter state.
+        - Fork(Linux Default) : Fork creates a child process by copying the parent process,
+            including its memory and interpreter state.
+
             Parent Process
                  │
                  ▼
