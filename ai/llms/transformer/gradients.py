@@ -55,5 +55,81 @@
 
     - Clip gradients, not weights.
 
+7. What is Gradient Accumulation ?
+    - Gradient Accumulation computes gradients over multiple mini-batches and delays the
+        optimizer update until all accumulated gradients have been collected,
+         allowing a larger effective batch size without increasing GPU memory.
+
+
+8. What is Effective Batch Size?
+
+    - Effective Batch Size is the total number of training samples that contribute to one weight update.
+
+    - Effective Batch Size = Micro Batch Size × Accumulation Steps
+                            = 16 x 4 = 64
+
+
+9. What is micro batches ?
+    - A Micro-Batch is the portion of data processed in one forward and backward pass due to GPU memory limitations.
+
+    - Micro-Batch = Actual batch that fits into GPU memory.
+
+10. How Gradient Accumulation Works ?
+
+    - Without accumulation:
+        Batch 16 -> Forward Pass -> Backward Pass -> AdamW update
+
+        - Every batch updates the weights.
+
+    - With Accumulation:
+        Micro Batch 1
+              ↓
+        Forward
+              ↓
+        Backward
+              ↓
+        Store Gradient
+
+        Micro Batch 2
+              ↓
+        Forward
+              ↓
+        Backward
+              ↓
+        Add Gradient
+
+        Micro Batch 3
+              ↓
+        Forward
+              ↓
+        Backward
+              ↓
+        Add Gradient
+
+        Micro Batch 4
+              ↓
+        Forward
+              ↓
+        Backward
+              ↓
+        Add Gradient
+
+        ↓
+----------------------------------Weights update after last accumulation.
+        AdamW Update (Once)
+
+
+    - Weights remain unchanged until the last accumulation step.
+    - Only the gradients accumulate.
+
+11. When to use gradients accumulation ?
+
+    - GPU memory is insufficient for the desired batch size.
+    - You want the optimization behavior of a larger batch.
+    - Training large models (LLMs, diffusion models, ViTs).
+
+12.
+
+
 
 """

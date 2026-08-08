@@ -115,5 +115,17 @@
     - These gradients are then passed to the optimizer, which updates the weights in the direction that minimizes the loss.
 
 
-4.
+4. What is Loss Scaling ?
+    - Loss Scaling multiplies the loss by a large constant before backpropagation
+        to prevent gradients from underflowing when training with FP16.
+
+    - Loss Scaling exists only because of FP16.
+
+5. What is Tensor Cores ?
+    - Tensor Cores are specialized hardware units on NVIDIA GPUs that accelerate matrix multiplication
+        and mixed-precision operations used in deep learning.
+
+    - Tensor Cores accelerate matrix multiplication, not model accuracy.
+
+
 """
