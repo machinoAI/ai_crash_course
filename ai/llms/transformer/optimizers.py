@@ -166,6 +166,39 @@
         to prevent overfitting and improve generalization.
 
 
+10. What is Learning Rate Scheduling ?
+
+    - Learning Rate Scheduling is the process of changing the learning rate during training
+        to improve convergence and stability.
+
+11. What is Warmup ?
+    - Warmup gradually increases the learning rate from a very small value to the target learning rate during the initial training steps.
+    - Warmup = Start slow.
+
+
+12. What is Cosine Decay ?
+
+    - Cosine Decay gradually decreases the learning rate following a cosine curve after the warmup phase.
+    - Cosine Decay = Finish slowly.
+
+
+13. Complete Optimizer Evolution:
+
+    Batch Gradient Descent
+        ↓
+    Stochastic Gradient Descent
+            ↓
+    Mini-Batch Gradient Descent
+            ↓
+    Momentum
+            ↓
+    AdaGrad
+            ↓
+    RMSProp
+            ↓
+    Adam
+            ↓
+    AdamW
 
 
 
