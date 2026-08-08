@@ -102,5 +102,52 @@
 
             - These are trained with the rest of the model.
 
+7. What are the different techniques used in LayerNorm ?
+
+    1. LayerNorm: Normalizes the hidden/features of each token independently.
+
+        y = γ ( x - μ)/ SQRT(σ^2+ϵ) + β
+
+        Key: subtracts mean + divides by standard deviation.
+
+    2. RMSNorm:
+        Normalizes using the root-mean-square, without subtracting the mean.
+
+         y = γ ( x ) / SQRT(1/d(x_i^2+ϵ) )
+
+        Key: simpler than LayerNorm and widely used in modern LLMs.
+
+    3. BatchNorm: Normalizes using statistics computed across the batch.
+
+        Key: very common in CNNs, but generally not preferred for Transformers,
+            partly because sequence lengths and batch composition make batch statistics less suitable.
+
+    4. GroupNorm: Splits channels/features into groups and normalizes within each group.
+
+        Key: common in computer vision; uncommon in standard LLMs.
+
+
+8. What is difference between LayerNorm & BatchNorm:
+
+    |                            | LayerNorm | RMSNorm         |
+    | -------------------------- | --------- | --------------- |
+    | Mean subtraction           | ✅         | ❌               |
+    | Variance/std normalization | ✅         | ❌               |
+    | RMS normalization          | ❌         | ✅               |
+    | Learnable scale            | ✅         | ✅               |
+    | Learnable bias             | Usually ✅ | Usually ❌       |
+    | Modern LLM usage           | Common    | **Very common** |
+
+LayerNorm = center + scale.
+RMSNorm = scale only.
+
+
+9. Where normalization is placed in a Transformer block?
+
+    Post-LayerNorm:
+        Attention -> Add -> LayerNorm
+
+    Pre LayerNorm:
+        LayerNorm -> Attention ->> Add
 
 """
