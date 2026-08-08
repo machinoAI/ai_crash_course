@@ -81,5 +81,15 @@
     These are weights.
     - Activations are the values produced when the model processes an input.
 
+5. What is activation memory ?
+
+    - Activation memory is the GPU memory used to store intermediate outputs (activations)
+        produced during the forward pass so they can be reused during backpropagation.
+
+6. What is Activation Checkpointing ?
+    - Activation checkpointing saves memory by storing only selected activations
+        during the forward pass and recomputing the missing ones during backpropagation.
+
+7.
 
 """
