@@ -98,7 +98,7 @@
     Where:
         g_t = current gradient
         v_t = moving average of squared gradients
-        β ≈ 0.9
+            β ≈ 0.9
         ϵ = small constant
 
     Advantages:
@@ -121,10 +121,55 @@
     - First Moment (m) → Moving average of gradients → Momentum
     - Second Moment (v) → Moving average of squared gradients → Adaptive learning rate
 
+    - Formula:
+        m_t = β_1 m_t-1 + (1-β_t)g_t ===>>> First moment
+
+        v_t = β2v_t-1 + (1-β2)g_t^2  =>>> Second Moment
+
+        W_t+1 = W_t - η x(m_t/sqrt(v_t + ϵ)
+
+
     Adam = Momentum + RMSProp
 
 7. What is AdamW ?
 
     - AdamW is Adam with decoupled weight decay. It separates optimization from regularization, leading to better generalization and more stable training.
+    -
+    Adam:
+        W_new = W_old − AdamUpdate
+
+    AdamW:
+       W_new = W_old − AdamUpdate − η λ W
+
+        Where:
+            η = learning rate
+            λ = weight decay coefficient
+
+
+        Advantages:
+            - Better generalization
+            - Better regularization
+            - More stable optimization
+            - Standard choice for LLMs
+
+
+8. Why was adam not enough ?
+        - Adam performs:
+            - Momentum + Adaptive Learning Rate
+
+        - But adam has one issue:
+            - Weight Decay was mixed with the gradient update.
+            - This made regularization behave differently than intended.
+
+9. What is Weight Decay?
+    - Weight decay is a regularization technique that shrinks the model weights during training
+        to prevent overfitting and improve generalization.
+
+
+
+
+
+
+
 
 """
