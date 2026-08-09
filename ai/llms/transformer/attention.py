@@ -121,7 +121,7 @@
         - Faster Inference
         - Used in PaLM
 
-    7. Grouped Query Attention: Multiple query heads share the same key and value heads within a group,
+    7. Grouped Query Attention (GQA): Multiple query heads share the same key and value heads within a group,
             instead of each query head having its own key and value.
 
         - This reduces the number of Key and Value tensors that must be stored and retrieved, significantly lowering
