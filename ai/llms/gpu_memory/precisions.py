@@ -1,5 +1,5 @@
 """
-1. Why do different datatypes exist?
+1. Why do different precisions exist?
     - There are two fundamental issues:
         - Storing the numbers/weights precisely to get high precision.
         - Storing the weights for bigger model requires high memory and compute.
