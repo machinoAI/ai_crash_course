@@ -133,4 +133,80 @@
     - With GQA it is 4 times cheaper.
 
 
+9. What is continuous Batching ?
+    - Continuous batching dynamically adds and removes requests from a running batch as individual requests
+        generate tokens, instead of waiting for every request in the batch to finish.
+
+    - The GPU is kept busy with useful work:
+
+    - In static batching waits until all the request processed in a batch.
+
+    - Static batching = wait for the batch.
+    - Continuous batching = keep the batch moving.
+
+
+10. Core Concepts in Inference computations:
+
+        - Iteration-level scheduling:
+            - Batch is reconsidered every generation step, not once per request.
+            - This is the defining mechanism.
+
+        - Prefill vs Decode scheduling:
+            - New requests need prefill.
+            - Existing requests need decode.
+            - Scheduler decides how to mix them without starving either side.
+
+        - Request admission / capacity:
+            - Scheduler decides whether a new request can enter based on available GPU/KV-cache capacity.
+
+        - KV-cache allocation & release:
+            - New request → allocate KV blocks.
+            - Finished request → immediately release blocks.
+            - This is where PagedAttention becomes useful.
+
+        - Variable sequence length:
+            - Requests finish at different times.
+            - Continuous batching handles this naturally.
+
+        - Scheduling policies:
+            - FIFO
+            - Fairness
+            - Priority
+            - Maximum batch/token limits
+
+        - Throughput vs latency trade-off:
+            - Larger batches → better GPU utilization/throughput.
+            - But potentially higher waiting time/latency.
+
+                Requests
+                    ↓
+              Request Queue
+                    ↓
+              ┌─────────────┐
+              │  Scheduler  │
+              └──────┬──────┘
+                     ↓
+       ┌─────────────┴─────────────┐
+       ↓                           ↓
+    Prefill                      Decode
+       ↓                           ↓
+       └─────────────┬─────────────┘
+                     ↓
+              Dynamic Batch
+                     ↓
+               Transformer
+                     ↓
+               KV Cache
+                     ↓
+          Finished request?
+             ↓          ↓
+            Yes         No
+             ↓          ↓
+        Release KV     Continue
+             ↓
+        New request
+
+
+
+
 """
