@@ -19,9 +19,9 @@ class URLRequest(BaseModel):
 
 # Generate short code:
 
-def generate_short_code(length: int = 6)
+def generate_short_code(length: int = 6):
     characters = string.ascii_letters + string.digits
-    return "".join((secrets.choice(characters))) for _ in range(length)
+    return "".join(secrets.choice(characters) for _ in range(length))
 
 # create short url
 @app.post("/shorten")
@@ -52,7 +52,7 @@ def redirect_url(short_code: str):
         raise HTTPException(
             status_code=404,
             detail="Short URL not found"
-        )
+            )
 
      return RedirectResponse(
             url=original_url,
