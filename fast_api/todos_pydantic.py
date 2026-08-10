@@ -6,6 +6,14 @@ class todo(BaseModel):
     completed: bool = False
 
 
+class TodoResponse(BaseModel):
+    id: int
+    name: str
+    completed: bool
+
+
+
+
 todos_list = [
     {
         "id": 1,
@@ -26,11 +34,11 @@ todos_list = [
 
 app = FastAPI()
 
-@app.get("/todos")
+@app.get("/todos", response_model = TodoResponse)
 def get_todos():
     return todos_list
 
-@app.post("/todos")
+@app.post("/todos", response_model = TodoResponse)
 def create_todos(todo:todo):
     new_todo = {
             "id": len(todos_list)+1,
@@ -61,7 +69,7 @@ class TodoUpdate(BaseModel):
     completed: bool
 
 
-@app.put("/todos/{todo_id}")
+@app.put("/todos/{todo_id}", response_model = TodoResponse)
 def update_todo(todo_id:int, todo:TodoUpdate):
 
     for existing_todo in todos_list:
@@ -81,7 +89,7 @@ class TodoPatch(BaseModel):
     completed: bool| None = None
 
 
-@app.patch("/todos/{todo_id}")
+@app.patch("/todos/{todo_id}", response_model = TodoResponse)
 def patch_todo(todo_id:int, todo:TodoPatch):
 
     for existing_todo in todos_list:
