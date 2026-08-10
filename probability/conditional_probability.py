@@ -2,7 +2,7 @@
 A bag contains red and blue balls. Draw two balls without replacement. Compute conditional probabilities.
 Explanation:
     - With replacement: After drawing the first ball, you put it back into the bag before drawing the second ball.
-    - With replacement: After drawing the first ball, you do not put it back.
+    - Without replacement: After drawing the first ball, you do not put it back.
 
     - Conditional probability formula:
         P(A∣B) = P(A∩B)/ P(B)
