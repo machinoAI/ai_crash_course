@@ -106,7 +106,7 @@ print("Stats:", stat)
 print("p-value:", p)
 
 """
-he hypotheses for the Shapiro–Wilk test are:
+The hypotheses for the Shapiro–Wilk test are:
 
 H₀ (Null Hypothesis): The data are normally distributed.
 H₁ (Alternative Hypothesis): The data are not normally distributed.
