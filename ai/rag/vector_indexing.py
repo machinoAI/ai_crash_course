@@ -94,11 +94,11 @@ Note:   ------------------------------------------------------------------------
 
 | Technique  | Definition                                                                                                                         | Simple intuition                                 |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| **Flat**   | Compares the query against **every vector** and returns the exact nearest neighbors.                                               | Search every house                               |
-| **IVF**    | **Inverted File Index** partitions vectors into clusters and searches only the nearest clusters.                                   | First find the neighborhood, then search houses  |
-| **HNSW**   | **Hierarchical Navigable Small World** organizes vectors as a multi-layer graph and navigates the graph to find nearest neighbors. | Follow shortcuts toward the nearest house        |
-| **PQ**     | **Product Quantization** compresses vectors by splitting them into sub-vectors and replacing each with a compact code.             | Store a compressed version of each address       |
-| **IVF-PQ** | Combines **IVF clustering + PQ compression**. First select relevant clusters, then search compressed vectors.                      | Find the neighborhood + use compressed addresses |
+| Flat   | Compares the query against **every vector** and returns the exact nearest neighbors.                                               | Search every house                               |
+| IVF    | **Inverted File Index** partitions vectors into clusters and searches only the nearest clusters.                                   | First find the neighborhood, then search houses  |
+| HNSW   | **Hierarchical Navigable Small World** organizes vectors as a multi-layer graph and navigates the graph to find nearest neighbors. | Follow shortcuts toward the nearest house        |
+| PQ     | **Product Quantization** compresses vectors by splitting them into sub-vectors and replacing each with a compact code.             | Store a compressed version of each address       |
+| IVF-PQ | Combines **IVF clustering + PQ compression**. First select relevant clusters, then search compressed vectors.                      | Find the neighborhood + use compressed addresses |
 
 
 """
