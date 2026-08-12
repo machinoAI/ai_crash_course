@@ -10,6 +10,9 @@ long_to_short = {}  # long_url -> short_key
 visits = {}       # short_key -> number of visits
 
 
+
+
+
 def generate_key():
     chars = string.ascii_letters + string.digits
     return "".join(random.choices(chars, k=5))
