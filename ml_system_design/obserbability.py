@@ -11,6 +11,9 @@
 
     1. Check latency metrics
     2. Look at P95/P99
+        - 95% of requests took ≤ 500 ms, while the slowest 5% took longer.
+        - 99% of requests took ≤ 2 seconds, while the slowest 1% took longer.
+
     3. Check distributed trace
     4. Identify slow dependency
     5. Check logs for errors/timeouts
