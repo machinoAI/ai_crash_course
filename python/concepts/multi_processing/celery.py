@@ -156,5 +156,4 @@ Example:
     - Idempotency means designing an operation so that executing it multiple times has the same business effect
         as executing it once, which is critical when retries or at-least-once message delivery can cause duplicate execution.
 
-
 """
