@@ -125,6 +125,26 @@
     - Processes can provide CPU parallelism;
     - asyncio provides cooperative I/O concurrency
 
+10. What happens if an async API call never returns?
+    - timeout
+    - cancellation
+    - retry policy
+    - circuit breaker
+    - concurrency limits
+    - observability
+
+11.How would you debug an async application that is slow?
+    - CHeck:
+        1. Event-loop blocking
+        2. Slow external APIs
+        3. Database latency
+        4. Connection pool exhaustion
+        5. Excessive sequential awaits
+        6. Missing concurrency
+        7. Timeouts/retries
+        8. CPU-heavy work running in event loop
+        9. Queue/backpressure
+        10. Distributed tracing
 
 
 """
