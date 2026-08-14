@@ -1,6 +1,6 @@
 prices = [1, 1, 0, 1, 1, 1]
 Output: 3
-prices = [1,0,1,1,0,1]
+# prices = [1,0,1,1,0,1]
 
 def largest_streak(nums):
     count = 0
