@@ -5,8 +5,8 @@ that has the largest product, and return that product.
 """
 
 nums = [2,3,-2,4]
-nums = [-2,3,-4]
 #output : 6
+# nums = [-2,3,-4]
 
 def max_product_subarray(nums):
 
