@@ -9,6 +9,15 @@ Output:
 
 """
 def duplicate(nums):
+    seen = set()
+
+    for num in nums:
+        if num in seen:
+            return num
+        seen.add(num)
+
+
+def duplicate(nums):
 
    for num in nums:
        index = abs(num)-1
