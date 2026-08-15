@@ -42,3 +42,26 @@ def array_leaders(nums):
 # nums = [4, 7, 1, 0]
 nums = [10, 22, 12, 3, 0, 6]
 print(array_leaders(nums))
+
+# Optimized:
+def array_leaders(nums):
+
+    result = []
+
+    if not nums:
+        return result
+
+    max_val = nums[-1]
+    result.append(nums[-1])
+
+    for i in range(len(nums)-2, -1, -1):
+        if nums[i] > max_val:
+            result.append(nums[i])
+            max_val=nums[i]
+
+    result.reverse()
+
+    return result
+
+nums = [10, 22, 12, 3, 0, 6]
+print("Optimzed:", array_leaders(nums))
