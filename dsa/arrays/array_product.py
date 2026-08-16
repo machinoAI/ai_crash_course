@@ -39,6 +39,7 @@ def product_array(nums):
         product *= num
     print("Left:", left)
 
+
     product = 1
     for num in reversed(nums):
         right.append(product)
