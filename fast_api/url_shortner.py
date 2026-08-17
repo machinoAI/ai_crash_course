@@ -54,7 +54,7 @@ def redirect_url(short_code: str):
             detail="Short URL not found"
             )
 
-     return RedirectResponse(
+    return RedirectResponse(
             url=original_url,
             status_code=307
         )
