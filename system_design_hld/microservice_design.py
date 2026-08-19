@@ -1,7 +1,4 @@
 """
-# MICROSERVICES — INTERVIEW REVISION NOTES
-# Based on Martin Fowler / James Lewis
-
 1. What is Microservices Architecture?
 
 - Microservices = an architectural style where one application is built as a suite of small, independently deployable services.
