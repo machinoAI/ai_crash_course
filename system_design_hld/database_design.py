@@ -4,12 +4,12 @@ Database Design Pattern:
     1. Requirement clarification
     2. Understanding Business workflow
     3. Identify Entities
-    4. Identify queries
+    4. Identify queries  ->> [ Select * from TXN where timestamp between d1 and d2 ]
     5. Design Schema
-    6. Relationship and Constraints
-    7. Indexing based on query retrieval
-    8. Discussing of Edge cases
-    9. Architecture Choices: ACID, SAGA, CAP Theorem
+    6. Relationship and Constraints: -->> [ PK, FK, UNIQUE, NOT NULL, CHECK]
+    7. Indexing based on query retrieval: [Index on individual keys and composite keys to retrieve faster] [ B+ Tree, Hash indexes, Data pages]
+    8. Discussing of Edge cases:
+    9. Architecture Choices: ACID, SAGA, CAP Theorem, Normalization, De-normalization
     10. Discussing NFRs: Scaling, Caching, Observability,
 
 
@@ -19,9 +19,28 @@ Database Design Pattern:
         100 RPS ->> PostgresSQL
         1 M RPS -> Need Caching, Partitioning/ Sharding, Replicas or specialized infrastructure
 
+    SQL
+        - PostgresSQL: High Consistency. Ideal for transactions, banking, finance etc.
+            - PostgresSQL can also be scaled horizontally by deploying replicas at multi-region
+            - Ideal for complex queries
+
+        - Distributed SQL - CockroachDB: It automatically manages distribution storage,
+            sharding, replications, node failure, and multi-region distributions.
+
+    - NoSQL:
+        - MongoDB: Flexible schema, document based storage, Read document as whole.
+        - Cassandra: High throughput, high availability, Access based indexing and massive scale.
+
+    - Sharding/Partition: Carefully choose the shard keys, it must be based on the access else querying can be expensive.
+        - Example: Shard based on user_id. Time based sharding usually used for archival.
+
     2. Is the system read-heavy or write heavy ?
 
         Ready heavy -> Caching becomes important
+            - Redis (key-value storage)
+                - LRU
+                - MRU
+                - LFU
 
         Write heavy -> Kafka, Casandra etc. May become relevant depending on the use case.
 
@@ -49,7 +68,7 @@ Database Design Pattern:
             Like Count increase, Send Notifications, Watch count increase, Recommendations
 
 
-    5. WHY DO THESE QUESTIONS MATTER?
+2. WHY DO THESE QUESTIONS MATTER?
 
         Because your answers determine the architecture.
 
