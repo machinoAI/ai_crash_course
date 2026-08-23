@@ -3,8 +3,8 @@ Database Design Pattern:
 
     1. Requirement clarification
     2. Understanding Business workflow
-    3. Identify Entities
-    4. Identify queries  ->> [ Select * from TXN where timestamp between d1 and d2 ]
+    3. Identify Entities : [ Identify tables and fields]
+    4. Identify queries/Access Patterns  ->> [ Select * from TXN where timestamp between d1 and d2 ]
     5. Design Schema
     6. Relationship and Constraints: -->> [ PK, FK, UNIQUE, NOT NULL, CHECK]
     7. Indexing based on query retrieval: [Index on individual keys and composite keys to retrieve faster] [ B+ Tree, Hash indexes, Data pages]
