@@ -1,7 +1,6 @@
 """"
 THREAD-SAFE TRANSACTION LEDGER
 
-
 1. REQUIREMENT CLARIFICATION
     Functional:
     - Create account
