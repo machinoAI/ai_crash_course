@@ -19,4 +19,23 @@ CAP Theorem: Choose 2 out of three:
     Partition Tolerance is most important
 
 
+    - Single PostgreSQL instance: → CAP is not usually the main discussion.
+
+    Multi-region PostgreSQL:
+        → Network partition is possible
+        → You must decide whether to favor:
+           - Consistency (reject/delay requests) or
+           - Availability (serve possibly stale data)
+
+    Example:
+    Region A ───X─── Region B
+
+    If A and B cannot communicate:
+        → Strong consistency may require rejecting writes.
+        → High availability may allow both regions to continue,
+          creating conflicting/stale data.
+
+
+
+
 """
