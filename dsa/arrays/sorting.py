@@ -92,3 +92,60 @@ def merge_sort(nums):
 
 
 print("Merge Sort: ", merge_sort(nums))
+
+
+# Heap sort: Build a Max Heap → repeatedly remove the maximum → put it at the end.
+# TC: O(n log n)
+# SC: O(1)
+
+def heap_sort(nums):
+    n = len(nums)
+
+    # Heapify subtree rooted at i
+    def heapify(n, i):
+        largest = i
+        left = 2 * i + 1
+        right = 2 * i + 2
+
+        if left < n and nums[left] > nums[largest]:
+            largest = left
+
+        if right < n and nums[right] > nums[largest]:
+            largest = right
+
+        if largest != i:
+            nums[i], nums[largest] = nums[largest], nums[i]
+            heapify(n, largest)
+
+    # 1. Build Max Heap
+    for i in range(n // 2 - 1, -1, -1):
+        heapify(n, i)
+
+    # 2. Move maximum to the end
+    for i in range(n - 1, 0, -1):
+        nums[0], nums[i] = nums[i], nums[0]
+
+        # 3. Restore Max Heap
+        heapify(i, 0)
+
+    return nums
+
+print("Heap Sort: ", heap_sort(nums))
+
+
+
+# Quick sort: Choose a pivot → partition the array around the pivot → recursively sort the left and right parts.
+# TC: O(n^2)
+# SC: O(n)
+
+def quick_sort(nums):
+    if len(nums) <= 1:
+        return nums
+
+    pivot = nums[len(nums) // 2]
+
+    left = [x for x in nums if x < pivot]
+    middle = [x for x in nums if x == pivot]
+    right = [x for x in nums if x > pivot]
+
+    return quick_sort(left) + middle + quick_sort(right)
