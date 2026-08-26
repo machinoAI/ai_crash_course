@@ -505,7 +505,6 @@ MOST IMPORTANT INTERVIEW POINTS
 
 
 Notes:
-
     I'd model User, Order and Payment separately, with Payment treated
     as an explicit state machine and money stored as integer paise.
     Every payment API requires an idempotency key, enforced with a
