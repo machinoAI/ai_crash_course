@@ -21,7 +21,7 @@ def measure_latency(func):
 
 @measure_latency
 def fetch_data():
-    time.sleep(0.2)
+    # time.sleep(0.2)
     print("Fetching Data...")
 
 fetch_data()
