@@ -31,6 +31,7 @@ def merge_sorted_array(a, b):
     a.sort()
     b.sort()
     return a, b
+
 a= [2, 4, 7, 10]
 b = [2, 3]
 
