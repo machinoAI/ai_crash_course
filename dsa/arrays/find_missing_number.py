@@ -7,7 +7,7 @@ output = 5
 def find_missing_number(nums):
     nums.sort()
 
-    for i, num in enumerate(nums):
+    for i, num in enumerate(nums, start=0):
         if num != i:
             return i
 
