@@ -1,5 +1,11 @@
-import numpy as np
+"""
+Implement matrix factorization (similar to SVD) for collaborative filtering.
+Given a sparse user-item rating matrix, decompose it into user and item latent factor matrices.
 
+
+"""
+
+import numpy as np
 
 def matrix_factorization(
     R,
