@@ -1,7 +1,13 @@
-# cosine similarity = (A.B)/ ||A|| X ||B||
-# WHere ||A|| = sqrt(sum(a**2)) in A  and similarly ||B|| = sqrt(sum(b**2)) in B
+"""
+cosine similarity = (A.B)/ ||A|| X ||B||
 
+    WHere : -
+        ||A|| = sqrt(sum(a**2)) in A
 
+        ||B|| = sqrt(sum(b**2)) in B
+
+"""
+import numpy as np
 import math
 
 def cosine_similarity(vec1, vec2):
@@ -21,7 +27,6 @@ print(cosine_sim)
 
 # Numpy:
 
-import numpy as np
 
 def cosine_similarity(vec1, vec2):
 
@@ -31,3 +36,21 @@ def cosine_similarity(vec1, vec2):
 
 cosine_similarity(x,y)
 print("Using Numpy:", cosine_sim)
+
+
+
+
+#=================== Using numpy Array========
+
+A = np.array([1,2,3])
+B = np.array([5,6,7])
+
+ab_dot = A @ B
+a_mag = math.sqrt(sum(a**2 for a in A))
+b_mag = math.sqrt(sum(b **2 for b in B))
+cosine_similarity = ab_dot/ (a_mag * b_mag)
+
+print("ab_dot:", ab_dot)
+print("a_mag:", a_mag)
+print("b_mag:", b_mag)
+print("cosine_similarity:", cosine_similarity)
