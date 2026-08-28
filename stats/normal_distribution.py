@@ -21,6 +21,7 @@ where:
     σ = Standard Deviation
 
     standardization(Z) = (X- mean)/ Standard Deviation #
+
     Example: A z-score tells us how many standard deviations a data point is away from the mean.
             Mean = 170 cm
             SD = 5 cm
@@ -62,9 +63,13 @@ Example:
 
 
  - How do you check whether your data are normally distributed?
- Ans: I would use a statistical test such as the Shapiro–Wilk test and also inspect a histogram and a Q-Q plot.
-  The statistical test provides evidence against normality, while the plots help identify skewness,
-  heavy tails, or outliers that may not be obvious from the p-value alone.
+
+    - I would use a statistical test such as the Shapiro–Wilk test and
+        also inspect a histogram and a Q-Q plot.
+
+   - The statistical test provides evidence against normality,
+        while the plots help identify skewness, heavy tails, or outliers
+            that may not be obvious from the p-value alone.
 
 """
 # Normal distribution:
