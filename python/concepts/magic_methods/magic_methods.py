@@ -1,11 +1,16 @@
 """
 1. What is magic methods in python ?
-- Magic methods, also known as dunder (double underscore) methods, are special methods that allow
-    custom Python objects to interact seamlessly with Python's built-in syntax and functions.
-    Python automatically invokes them when operations such as print(), len(), +, ==, indexing, or iteration are performed.
+    - Magic methods, also known as dunder (double underscore) methods.
+    - It define how your custom Python objects to interact seamlessly with Python's built-in syntax and functions.
+    - Python automatically invokes them when operations such as:
+        - print(), len(), +, ==, indexing, or iteration are performed.
 
-- For example, print(obj) calls obj.__str__(), len(obj) calls obj.__len__(), and obj1 + obj2 calls obj1.__add__(obj2).
-- They enable user-defined classes to behave like native Python types.
+    - For example:
+        - print(obj) calls obj.__str__(),
+        - len(obj) calls obj.__len__(), and
+        - obj1 + obj2 calls obj1.__add__(obj2).
+
+    - They enable user-defined classes to behave like native Python types.
 
 
 Examples:
