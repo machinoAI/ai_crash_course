@@ -229,7 +229,7 @@ IMPORTANT DATABASE NUANCE
     Systems such as PostgreSQL use MVCC, where ordinary reads can often
     proceed without blocking writers in the way a textbook S-lock model
     suggests. PostgreSQL explicitly documents row-level locking separately
-    from ordinary reads. :contentReference[oaicite:2]{index=2}
+    from ordinary reads.
 
 
 ============================================================
